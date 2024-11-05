@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfejsy Komunikacyjne Arduino</title>
+    <style>
+    	* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    margin-top: 20px;
+    color: #4CAF50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.interface {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.interface h3 {
+    color: #333;
+}
+
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+    font-size: 14px;
+}
+    	</style>
+</head>
+<body>
+    <header>
+        <h1>Interfejsy Komunikacyjne Arduino</h1>
+        <p>Opis dostępnych interfejsów komunikacyjnych, prędkości przesyłu oraz podatności na zakłócenia.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Wprowadzenie</h2>
+            <p>Arduino to platforma mikroprocesorowa, umożliwiająca komunikację między różnymi urządzeniami przy użyciu różnych interfejsów. Każdy z nich charakteryzuje się różną prędkością, zakresem oraz odpornością na zakłócenia.</p>
+        </section>
+
+        <section>
+            <h2>Przegląd Interfejsów Komunikacyjnych</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Interfejs</th>
+                        <th>Typ transmisji</th>
+                        <th>Prędkość transmisji</th>
+                        <th>Zakres transmisji</th>
+                        <th>Odporność na zakłócenia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>UART</td>
+                        <td>Szeregowy, asynchroniczny</td>
+                        <td>Do 1 Mbps</td>
+                        <td>Krótki (do 15m)</td>
+                        <td>Średnia</td>
+                    </tr>
+                    <tr>
+                        <td>I2C</td>
+                        <td>Szeregowy, synchroniczny</td>
+                        <td>Do 400 kbps</td>
+                        <td>Krótki (do 1m)</td>
+                        <td>Średnia</td>
+                    </tr>
+                    <tr>
+                        <td>SPI</td>
+                        <td>Szeregowy, synchroniczny</td>
+                        <td>Do 10 Mbps</td>
+                        <td>Krótki (do 1m)</td>
+                        <td>Wysoka</td>
+                    </tr>
+                    <tr>
+                        <td>Bluetooth</td>
+                        <td>Bezprzewodowy</td>
+                        <td>1-3 Mbps</td>
+                        <td>Średni (do 10m)</td>
+                        <td>Niska</td>
+                    </tr>
+                    <tr>
+                        <td>WiFi</td>
+                        <td>Bezprzewodowy</td>
+                        <td>Do 54 Mbps</td>
+                        <td>Średni (do 100m)</td>
+                        <td>Średnia</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Charakterystyka wybranych interfejsów</h2>
+            <article class="interface">
+                <h3>UART (Universal Asynchronous Receiver-Transmitter)</h3>
+                <p>Komunikacja asynchroniczna, oparta na transmisji szeregowej bitów bez sygnału zegarowego.</p>
+                <ul>
+                    <li><strong>Zalety:</strong> Prosta implementacja, dostępna w większości modułów Arduino.</li>
+                    <li><strong>Wady:</strong> Ograniczona odporność na zakłócenia, konieczność synchronizacji, ograniczony zasięg.</li>
+                </ul>
+            </article>
+
+            <article class="interface">
+                <h3>I2C (Inter-Integrated Circuit)</h3>
+                <p>Szybka komunikacja synchroniczna z użyciem dwóch przewodów (SDA i SCL), obsługująca wiele urządzeń na jednej magistrali.</p>
+                <ul>
+                    <li><strong>Zalety:</strong> Możliwość podłączenia wielu urządzeń, wbudowana synchronizacja.</li>
+                    <li><strong>Wady:</strong> Niska prędkość transmisji, ograniczony zasięg.</li>
+                </ul>
+            </article>
+
+            <article class="interface">
+                <h3>SPI (Serial Peripheral Interface)</h3>
+                <p>Interfejs szeregowy, synchroniczny o dużej prędkości, używany głównie w komunikacji z pamięciami i czujnikami.</p>
+                <ul>
+                    <li><strong>Zalety:</strong> Wysoka prędkość transmisji, odporność na zakłócenia.</li>
+                    <li><strong>Wady:</strong> Wymaga większej liczby przewodów niż I2C.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Aleks Paprocki 4TPT</p>
+    </footer>
+</body>
+</html>
